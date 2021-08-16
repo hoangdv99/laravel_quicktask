@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
 use Illuminate\Http\Request;
-use App\Models\Project;
+use App\Models\Task;
 
-class ProjectController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
-
-        return view('projects', compact('projects'));
+        //
     }
 
     /**
@@ -38,9 +35,9 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        Project::create($request->all());
+        Task::create($request->all());
 
-        return redirect()->route('projects.index');
+        return redirect()->back();
     }
 
     /**
@@ -51,10 +48,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $project = Project::findOrFail($id);
-        $tasks = $project->tasks;
-
-        return view('tasks', ['project' => $project, 'tasks' => $tasks]);
+        //
     }
 
     /**
@@ -77,12 +71,12 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $project = Project::findOrFail($request->input('id'));
-        $project->name = $request->input('name');
-        $project->description = $request->input('description');
-        $project->save();
+        $data = $request->all();
+        $task = Task::findOrFail($data['id']);
+        $task->name = $data['name'];
+        $task->save();
 
-        return redirect()->route('projects.index');
+        return redirect()->route('projects.show', $data['project_id']);
     }
 
     /**
@@ -93,9 +87,9 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        $project = Project::findOrFail($id);
-        $project->delete();
+        $task = Task::findOrFail($id);
+        $task->delete();
 
-        return redirect()->route('projects.index');
+        return redirect()->back();
     }
 }
