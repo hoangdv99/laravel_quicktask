@@ -37,7 +37,7 @@ class TaskController extends Controller
     {
         Task::create($request->all());
 
-        return redirect()->back();
+        return redirect()->back()->withSuccess(__('index.created_success'));
     }
 
     /**
@@ -76,7 +76,7 @@ class TaskController extends Controller
         $task->name = $data['name'];
         $task->save();
 
-        return redirect()->route('projects.show', $data['project_id']);
+        return redirect()->route('projects.show', $data['project_id'])->withSuccess(__('index.updated_success'));
     }
 
     /**
@@ -90,6 +90,6 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->delete();
 
-        return redirect()->back();
+        return redirect()->back()->withSuccess(__('index.deleted_success'));
     }
 }
