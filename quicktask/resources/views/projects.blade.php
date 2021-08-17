@@ -22,13 +22,14 @@
                             <td>{{ $project->description }}</td>
                             <td style="display: flex;">
                                 <button type="button" class="btn btn-warning edit-project-btn" data-toggle="modal" data-target="#editProjectModal" data-id="{{ $project->id }}" data-name="{{ $project->name }}" data-description="{{ $project->description }}" >Edit</button>
-                                <form action="{{ route('projects.destroy', $project->id) }}" method="POST" class="delete-project-btn">
+                                <form action="{{ route('projects.destroy', $project->id) }}" method="POST" class="delete-btn">
                                     @csrf
                                     @method("DELETE")
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">
                                         <i class="fa fa-trash"></i> Delete
                                     </button>
                                 </form>
+                                <a class="btn btn-primary" href="{{ route('projects.show', $project->id) }}">View</a>
                             </td>
                         </tr>
                     @endforeach
