@@ -17,6 +17,4 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
 
 mix.styles('resources/css/projects.css', 'public/css/projects.css');
-mix.styles('resources/css/tasks.css', 'public/css/tasks.css');
 mix.js('resources/js/projects.js', 'public/js/projects.js');
-mix.js('resources/js/tasks.js', 'public/js/tasks.js');
