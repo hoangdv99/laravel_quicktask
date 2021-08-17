@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Models\Project;
 
@@ -51,10 +50,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $project = Project::findOrFail($id);
-        $tasks = $project->tasks;
-
-        return view('tasks', ['project' => $project, 'tasks' => $tasks]);
+        //
     }
 
     /**
