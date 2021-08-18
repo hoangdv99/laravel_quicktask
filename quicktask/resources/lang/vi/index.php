@@ -23,4 +23,7 @@
         'deleted_success' => 'Xóa thành công!',
         'updated_success' => 'Cập nhật thành công!',
         'en' => 'US English',
+        'name_required' => 'Tên cần được nhập',
+        'name_length_limit' => 'Tên phải nhỏ hơn 50 kí tự',
+        'description_length_limit' => 'Mô tả phải nhỏ hơn 300 kí tự',
     ]; 
