@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjectRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Models\Project;
@@ -36,7 +37,7 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
         Project::create($request->all());
 
@@ -75,7 +76,7 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectRequest $request, $id)
     {
         $project = Project::findOrFail($request->input('id'));
         $project->name = $request->input('name');

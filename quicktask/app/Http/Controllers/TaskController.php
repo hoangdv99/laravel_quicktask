@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskRequest;
 use Illuminate\Http\Request;
 use App\Models\Task;
 
@@ -33,7 +34,7 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
         Task::create($request->all());
 
@@ -69,7 +70,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TaskRequest $request, $id)
     {
         $data = $request->all();
         $task = Task::findOrFail($data['id']);

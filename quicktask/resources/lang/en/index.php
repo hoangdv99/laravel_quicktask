@@ -23,4 +23,7 @@
         'deleted_success' => 'Deleted successfully!',
         'updated_success' => 'Updated successfully!',
         'vi' => 'VN Tiếng Việt',
+        'name_required' => 'Name is required!',
+        'name_length_limit' => 'Name must be less than 50 charactors',
+        'description_length_limit' => 'Description must be less than 50 charactors',
     ]; 
