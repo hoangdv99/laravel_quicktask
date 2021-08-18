@@ -38,3 +38,7 @@ body {
     margin-left: 0;
     margin-right: 0;
 }
+
+.nav-item {
+    margin-right: 1rem;
+}

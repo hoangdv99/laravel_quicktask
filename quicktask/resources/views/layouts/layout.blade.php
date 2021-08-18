@@ -17,6 +17,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    @if (Config::get('app.locale') == 'en')
+                        <a href="{{ route('language', 'vi') }}" class="nav-link pe-0 text-muted">{{ __('index.vi') }}</a>
+                    @elseif (Config::get('app.locale') == 'vi')
+                        <a href="{{ route('language', 'en') }}" class="nav-link pe-0 text-muted">{{ __('index.en') }}</a>
+                    @endif
+                </li>
+            </ul>
+        </div>
     </nav>
 
     @yield('content')

@@ -40,7 +40,7 @@ class ProjectController extends Controller
     {
         Project::create($request->all());
 
-        return redirect()->route('projects.index');
+        return redirect()->route('projects.index')->withSuccess(__('index.created_success'));
     }
 
     /**
@@ -54,7 +54,7 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $tasks = $project->tasks;
 
-        return view('tasks', ['project' => $project, 'tasks' => $tasks]);
+        return view('tasks', compact('project', 'tasks'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ProjectController extends Controller
         $project->description = $request->input('description');
         $project->save();
 
-        return redirect()->route('projects.index');
+        return redirect()->route('projects.index')->withSuccess(__('index.updated_success'));
     }
 
     /**
@@ -96,6 +96,6 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $project->delete();
 
-        return redirect()->route('projects.index');
+        return redirect()->route('projects.index')->withSuccess(__('index.deleted_success'));
     }
 }
